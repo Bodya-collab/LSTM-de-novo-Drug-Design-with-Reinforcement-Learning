@@ -43,8 +43,8 @@ The Quantitative Estimate of Druglikeness (QED) is the industry standard for eva
 *Note on the plot's topology:* The distinct diagonal banding (rather than a diffuse scatter cloud) is an expected mathematical artifact of our customized reward function. The final AI Score uses QED as a continuous baseline weight (`QED * 0.7`), combined with strict discrete step-bonuses (e.g., `+0.2` for specific ring/heteroatom complexities) and hard penalty multipliers. Consequently, the molecules form parallel linear clusters based on which discrete logical conditions they satisfied during the scoring phase.
 
 ### 6. Global Feature Correlation (Heatmap)
-<img width="665" height="450" alt="Correlation Heatmap of Molecular Features and AI Score" src="https://github.com/user-attachments/assets/65b5fcfa-91c4-4e07-8f9f-984788e03a5f" />
-![Correlation Heatmap]
+![Correlation Heatmap]<img width="665" height="450" alt="Correlation Heatmap of Molecular Features and AI Score" src="https://github.com/user-attachments/assets/65b5fcfa-91c4-4e07-8f9f-984788e03a5f" />
+
 
 To summarize the global impact of the Reinforcement Learning constraints, a correlation matrix was computed for the key physicochemical properties of the generated batch.
 
