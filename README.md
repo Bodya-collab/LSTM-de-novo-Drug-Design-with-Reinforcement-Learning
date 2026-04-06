@@ -18,32 +18,32 @@ By actively penalizing cheap exploits (e.g., carbon spam, hyper-hydrophobicity, 
 The following visualizations demonstrate how the model's behavior evolved and adapted to the strict chemical constraints imposed by the RL Judge.
 
 ### 1. Chemical Space and Lipinski's Rule of Five
-![Chemical Space]<img width="665" height="518" alt="Chemical Space (Lipinski&#39;s Rule of Five)" src="https://github.com/user-attachments/assets/ecd6c14f-ebf5-4d50-847c-e9d82648508d" />
+![Chemical Space]<img width="665" height="450" alt="Chemical Space (Lipinski&#39;s Rule of Five)" src="https://github.com/user-attachments/assets/ecd6c14f-ebf5-4d50-847c-e9d82648508d" />
 This scatter plot provides direct visual proof of the RL loop's success. 
 * **The Axes:** Molecular Weight (X) vs. Lipophilicity / LogP (Y). The red dashed lines represent the boundaries of Lipinski's Rule of Five (Weight < 500 Da, LogP < 5).
 * **The Clustering:** The color gradient represents the AI Score (Reward). The model's "Elite" outputs (yellow/green dots, Score > 0.75) are perfectly clustered in the bottom-left quadrant—the optimal therapeutic window. 
 * **Weak compounds:** The rejected structures (dark purple, Score < 0.4) are scattered wildly, frequently breaching the 500 Da weight limit and the LogP = 5 threshold. The model actively learned to avoid these regions.
 
 ### 2. Controlling Molecule Size (SMILES Length vs. Reward)
-![SMILES Length]<img width="665" height="518" alt="Lenght_smiles vs Ai_score" src="https://github.com/user-attachments/assets/e022f26c-5021-41d2-b03a-3d5cc649393e" />
+![SMILES Length]<img width="665" height="450" alt="Lenght_smiles vs Ai_score" src="https://github.com/user-attachments/assets/e022f26c-5021-41d2-b03a-3d5cc649393e" />
 A common issue in ML-driven drug design is the model inflating molecule size to artificially boost parameters like LogP or weight. The strong negative correlation shown here proves that the Judge successfully penalized unnecessary chain elongations. The model learned that highly compact, efficient representations yield the highest rewards.
 
 ### 3. Toxicity and Heteroatom Control
-![Heteroatoms]<img width="665" height="518" alt="Heteroatoms vs Ai_score" src="https://github.com/user-attachments/assets/63330b3b-a44f-469b-8149-82016e6690c3" />
+![Heteroatoms]<img width="665" height="450" alt="Heteroatoms vs Ai_score" src="https://github.com/user-attachments/assets/63330b3b-a44f-469b-8149-82016e6690c3" />
 During early RL iterations, the model attempted "Reward Hacking" by spamming sulfur and oxygen atoms (sulfonamides/sulfones) to hit target weights quickly, resulting in highly toxic and unsynthesizable candidates. By introducing a strict penalty for excessive heteroatoms and rigid constraints on rotatable bonds, the model was forced to limit its heteroatom usage. The negative correlation confirms the model favors stable, balanced structures (e.g., standard amide bonds) over toxic heteroatom spam.
 
 ### 4. Reward Distribution (Preventing Mode Collapse)
-![Distribution]<img width="665" height="518" alt="Heteroatoms vs Ai_score" src="https://github.com/user-attachments/assets/5ff49b29-9161-41c2-a631-33a9beef0234" />
+![Distribution]<img width="665" height="450" alt="Heteroatoms vs Ai_score" src="https://github.com/user-attachments/assets/5ff49b29-9161-41c2-a631-33a9beef0234" />
 This density plot illustrates the distribution of rewards across a generated batch. Instead of a single massive spike at 1.0 (which would indicate catastrophic mode collapse, where the model outputs the exact same molecule 10,000 times), we see a healthy, multimodal distribution. This confirms the model maintains high structural diversity (Tanimoto dissimilarity) while consistently shifting the bulk of its generations toward the high-reward threshold.
 
 ### 5. Druglikeness (QED) Optimization
-![QED vs Reward]<img width="665" height="518" alt="QED" src="https://github.com/user-attachments/assets/c38a301b-7931-4704-9879-78448c802d9f" />
+![QED vs Reward]<img width="665" height="450" alt="QED" src="https://github.com/user-attachments/assets/c38a301b-7931-4704-9879-78448c802d9f" />
 The Quantitative Estimate of Druglikeness (QED) is the industry standard for evaluating the viability of *de novo* generated molecules. This plot confirms that the Reinforcement Learning agent successfully learned to prioritize high-QED structures.
 
 *Note on the plot's topology:* The distinct diagonal banding (rather than a diffuse scatter cloud) is an expected mathematical artifact of our customized reward function. The final AI Score uses QED as a continuous baseline weight (`QED * 0.7`), combined with strict discrete step-bonuses (e.g., `+0.2` for specific ring/heteroatom complexities) and hard penalty multipliers. Consequently, the molecules form parallel linear clusters based on which discrete logical conditions they satisfied during the scoring phase.
 
 ### 6. Global Feature Correlation (Heatmap)
-<img width="665" height="518" alt="Correlation Heatmap of Molecular Features and AI Score" src="https://github.com/user-attachments/assets/65b5fcfa-91c4-4e07-8f9f-984788e03a5f" />
+<img width="665" height="450" alt="Correlation Heatmap of Molecular Features and AI Score" src="https://github.com/user-attachments/assets/65b5fcfa-91c4-4e07-8f9f-984788e03a5f" />
 ![Correlation Heatmap]
 
 To summarize the global impact of the Reinforcement Learning constraints, a correlation matrix was computed for the key physicochemical properties of the generated batch.
