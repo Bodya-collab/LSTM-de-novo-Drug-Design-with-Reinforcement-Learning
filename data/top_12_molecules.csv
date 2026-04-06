@@ -1,0 +1,13 @@
+epoch,smiles,ai_score
+2,CC(=O)C(Cc1ccccc1)NC(=O)c1ccccc1,0.983
+8,CC(N)CC(=O)C(c1ccccc1)c1ccccc1,0.972
+2,CN(CCC(=O)Nc1ccccc1)c1ccccc1,0.972
+1,CCN(CC(=O)Nc1ccccc1)c1ccccc1,0.972
+8,CC(SC(=O)CNc1ccccc1)c1ccccc1,0.971
+7,CC(=Cc1ccccc1)NC(=O)Cc1ccccc1,0.97
+3,CC(=O)Nc1ccccc1C(=O)Nc1ccccc1,0.969
+3,CC(C)NC(=O)C(Cc1ccccc1)c1ccccc1,0.967
+1,CC(C)CNC(=O)C(Oc1ccccc1)c1ccccc1,0.966
+1,CCNC(=O)C(C(C)=Cc1ccccc1)c1ccccc1,0.966
+4,CC(C)C(CNC(=O)c1ccccc1)c1ccccc1,0.963
+3,CCC(=Cc1ccccc1)NC(=O)Cc1ccccc1,0.963
