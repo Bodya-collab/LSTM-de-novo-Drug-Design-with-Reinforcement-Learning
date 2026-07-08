@@ -39,7 +39,7 @@ A common issue in ML-driven drug design is the model inflating molecule size to 
 During early RL iterations, the model attempted "Reward Hacking" by spamming sulfur and oxygen atoms (sulfonamides/sulfones) to hit target weights quickly, resulting in highly toxic and unsynthesizable candidates. By introducing a strict penalty for excessive heteroatoms and rigid constraints on rotatable bonds, the model was forced to limit its heteroatom usage. The negative correlation confirms the model favors stable, balanced structures (e.g., standard amide bonds) over toxic heteroatom spam.
 
 ### 4. Reward Distribution (Preventing Mode Collapse)
-<img width="665" height="450" alt="Heteroatoms vs Ai_score" src="https://github.com/user-attachments/assets/5ff49b29-9161-41c2-a631-33a9beef0234" />
+<img width="665" height="518" alt="Distribution of AI_score" src="https://github.com/user-attachments/assets/80e3ec14-4c2f-4bf1-ad89-3e312fcbb9e5" />
 <br>
 <br>
 This density plot illustrates the distribution of rewards across a generated batch. Instead of a single massive spike at 1.0 (which would indicate catastrophic mode collapse, where the model outputs the exact same molecule 10,000 times), we see a healthy, multimodal distribution. This confirms the model maintains high structural diversity (Tanimoto dissimilarity) while consistently shifting the bulk of its generations toward the high-reward threshold.
